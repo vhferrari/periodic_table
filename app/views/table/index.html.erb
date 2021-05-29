@@ -1,16 +1,43 @@
 <style>
+  abbr{
+    font-size: 30px;
+  }
   li {
+    padding: 10px;
+    list-style: none;
     display: list-item;
     text-align: -webkit-match-parent;
+    color: black;
   }
-  .diatomic-nonmetal{
-    background-color: rgb(140,237,140);
-  }
-  .polyatomic-nonmetal{
+  .diatomic-nonmetal, .polyatomic-nonmetal{
     background-color: rgb(140,237,140);
   }
   .alkali-metal{
     background-color: rgb(234,206,93);
+  }
+  .alkaline-earth-metal{
+    background-color: rgb(241,241,101);
+  }
+  .transition-metal{
+    background-color: rgb(250,197,183);
+  }
+  .metalloid{
+    background-color: rgb(158,229,212);
+  }
+  .post-transition-metal{
+    background-color: rgb(172,223,236);
+  }
+  .noble-gas{
+    background-color: rgb(229,189,229);
+  }
+  .lanthanide{
+    background-color: rgb(232,209,156);
+  }
+  .actinide{
+    background-color: rgb(245,204,218);
+  }
+  .unknown-probably-transition-metal, .unknown-probably-post-transition-metal, .unknown-probably-metalloid, .unknown-predicted-to-be-noble-gas, .unknown-but-predicted-to-be-an-alkali-metal{
+    background-color: rgb(238,238,238);
   }
 </style>
 
@@ -18,7 +45,7 @@
   <div class="row">
     <ul>
     <% @elements["order"].each do |element| %>
-      <li class=<%= @elements[element]["category"].sub(" ", '-') %>>
+      <li class=<%= @elements[element]["category"].gsub(",","").gsub(" ", '-') %>>
         <b><%= @elements[element]["number"] %><b></br>
         <abbr><%= @elements[element]["symbol"] %></abbr></br>
         <em><%= @elements[element]["name"] %></em></br>
