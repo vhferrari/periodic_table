@@ -1,12 +1,28 @@
+<style>
+  li {
+    display: list-item;
+    text-align: -webkit-match-parent;
+  }
+  .diatomic-nonmetal{
+    background-color: rgb(140,237,140);
+  }
+  .polyatomic-nonmetal{
+    background-color: rgb(140,237,140);
+  }
+  .alkali-metal{
+    background-color: rgb(234,206,93);
+  }
+</style>
+
 <div class="container">
   <div class="row">
     <ul>
     <% @elements["order"].each do |element| %>
-      <li>
-        <%= @elements[element]["name"] %>
-        <%= @elements[element]["number"] %>-
-        <%= @elements[element]["period"] %>,
-        <%= @elements[element]["atomic_mass"] %>
+      <li class=<%= @elements[element]["category"].sub(" ", '-') %>>
+        <b><%= @elements[element]["number"] %><b></br>
+        <abbr><%= @elements[element]["symbol"] %></abbr></br>
+        <em><%= @elements[element]["name"] %></em></br>
+        <data><%= @elements[element]["atomic_mass"] %></data>
       </li>
     <% end %>
     </ul>
