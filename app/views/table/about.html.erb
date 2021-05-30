@@ -1,1 +1,83 @@
-<h3>oi</h3>
+<style>
+    .gas{
+        color: rgb(153,0,0);
+    }
+    .liquid{
+        color: rgb(51,90,221);
+    }
+    table {
+        margin: 0 auto;
+        font-family: arial, sans-serif;
+        border-collapse: collapse;
+        width: 80%;
+    }
+    td{
+        border: 1px solid #dddddd;
+        text-align: left;
+        padding: 8px;
+    }
+    
+    tr:nth-child(even) {
+        background-color: rgb(78,78,78);
+    }
+    abbr{
+        font-size: 30px;
+    }
+    .ele {
+        margin: 0 auto;
+        width:120px;
+        color: black;
+    }
+    .diatomic-nonmetal, .polyatomic-nonmetal{
+        background-color: rgb(140,237,140);
+    }
+    .alkali-metal{
+        background-color: rgb(234,206,93);
+    }
+    .alkaline-earth-metal{
+        background-color: rgb(241,241,101);
+    }
+    .transition-metal{
+        background-color: rgb(250,197,183);
+    }
+    .metalloid{
+        background-color: rgb(158,229,212);
+    }
+    .post-transition-metal{
+        background-color: rgb(172,223,236);
+    }
+    .noble-gas{
+        background-color: rgb(229,189,229);
+    }
+    .lanthanide{
+        background-color: rgb(232,209,156);
+    }
+    .actinide{
+        background-color: rgb(245,204,218);
+    }
+    .unknown-probably-transition-metal, .unknown-probably-post-transition-metal, .unknown-probably-metalloid, .unknown-predicted-to-be-noble-gas, .unknown-but-predicted-to-be-an-alkali-metal{
+        background-color: rgb(238,238,238);
+    }
+</style>
+
+<div class="ele">
+    <div style="padding:5px;" class=<%= @el["category"].gsub(",","").gsub(" ", '-') %>>
+        <b><%= @el["number"] %></b></br>
+        <abbr class="<%= @el["phase"].downcase%>"><%= @el["symbol"] %></abbr></br>
+        <em><%= @el["name"] %></em></br>
+        <data><%= @el["atomic_mass"] %></data>
+    </div>
+</div></br>
+
+<table clas="table table-stripped">
+<% @el.each do |key,value| %>
+    <tr>
+        <td>
+            <%= key %>
+        </td>
+        <td>
+            <%= value %>
+        </td>
+    </tr>
+<% end %>
+</table>

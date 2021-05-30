@@ -5,6 +5,8 @@ class TableController < ApplicationController
   end
 
   def about
-    render :about
+    file = File.read("db/data.json")
+    elements = JSON.parse(file)
+    @el = elements[params[:name].downcase]
   end
 end

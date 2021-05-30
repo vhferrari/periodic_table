@@ -9,6 +9,15 @@
     width:120px;
     color: black;
   }
+  a{ 
+    color: inherit; 
+  } 
+  .gas{
+    color: rgb(153,0,0);
+  }
+  .liquid{
+    color: rgb(51,90,221);
+  }
   .diatomic-nonmetal, .polyatomic-nonmetal{
     background-color: rgb(140,237,140);
   }
@@ -48,8 +57,8 @@
     <div class="ele" style=grid-column:<%= @elements[element]['xpos']%>;grid-row:<%= @elements[element]['ypos']%>>
       <div class=<%= @elements[element]["category"].gsub(",","").gsub(" ", '-') %>>
         <b><%= @elements[element]["number"] %></b></br>
-        <a href="/about">
-        <abbr><%= @elements[element]["symbol"] %></abbr></br>
+        <a href="/about/<%= @elements[element]['name']%>">
+        <abbr class="<%= @elements[element]["phase"].downcase%>"><%= @elements[element]["symbol"] %></abbr></br>
         </a>
         <em><%= @elements[element]["name"] %></em></br>
         <data><%= @elements[element]["atomic_mass"] %></data>
