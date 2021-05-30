@@ -2,23 +2,11 @@
   .periodic{
     display: grid;
   }
-  .item1{
-    grid-column: 1;
-    grid-row: 1;
-  }
-  .item2
-  {
-    grid-column: 4;
-    grid-row: 1;
-  }
   abbr{
     font-size: 30px;
   }
-  li {
-    padding: 10px;
-    list-style: none;
-    #display: inline-table;
-    display: list-item;
+  .ele {
+    width:120px;
     color: black;
   }
   .diatomic-nonmetal, .polyatomic-nonmetal{
@@ -56,12 +44,16 @@
 </style>
 
 <div class="periodic">
-  <%= link_to action: "about" do%>
-  <div class="item1">Chocolate</div>
+  <% @elements["order"].each do |element| %>
+    <div class="ele" style=grid-column:<%= @elements[element]['xpos']%>;grid-row:<%= @elements[element]['ypos']%>>
+      <div class=<%= @elements[element]["category"].gsub(",","").gsub(" ", '-') %>>
+        <b><%= @elements[element]["number"] %></b></br>
+        <a href="/about">
+        <abbr><%= @elements[element]["symbol"] %></abbr></br>
+        </a>
+        <em><%= @elements[element]["name"] %></em></br>
+        <data><%= @elements[element]["atomic_mass"] %></data>
+      </div>
+    </div>
   <% end %>
-  <div class="item2">Juliano</div>
 </div>
-
-<script type="text/javascript">
-
-</script>
